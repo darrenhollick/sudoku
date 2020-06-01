@@ -1,0 +1,101 @@
+.square {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+    background: #fff;
+
+    &.border-top { border-top: 3px solid #000; }
+    &.border-right { border-right: 3px solid #000; }
+    &.border-bottom { border-bottom: 3px solid #000; }
+    &.border-left { border-left: 3px solid #000; }
+
+    &.bg2 { background: rgba(150, 150, 150, .5); }
+    &.bg3 { background: rgba(50, 50, 50, .5); }
+    &.bg4 { background: rgba(163, 224, 72, .5); }
+    &.bg5 { background: rgba(210, 59, 231, .5); }
+    &.bg6 { background: rgba(235, 117, 50, .5); }
+    &.bg7 { background: rgba(230, 38, 31, .5); }
+    &.bg8 { background: rgba(247, 208, 56, .5); }
+    &.bg9 { background: rgba(52, 187, 230, .5); }
+}
+
+.shaded {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .3);
+}
+.highlight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 215, 0, .5);
+}
+.corner-content {
+    position: absolute;
+    font-family: Tahoma, Verdana, Geneva, sans-serif;
+    font-size: 20px;
+    color: #1d6ae5;
+
+    &.top {
+        top: 3px;
+    }
+
+    &.bottom {
+        bottom: 3px;
+    }
+
+    &.left {
+        left: 5px;
+    }
+
+    &.right {
+        right: 5px;
+    }
+
+    &.center {
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    &.middle {
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+}
+
+.center-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: Tahoma, Verdana, Geneva, sans-serif;
+    font-size: 20px;
+    color: #1d6ae5;
+
+    &.fixed {
+        color: #000;
+    }
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: Tahoma, Verdana, Geneva, sans-serif;
+    font-size: 50px;
+    color: #1d6ae5;
+
+    &.fixed {
+        color: #000;
+    }
+}

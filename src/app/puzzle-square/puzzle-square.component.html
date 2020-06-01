@@ -1,0 +1,23 @@
+<div class="square" [class.border-top]="borderTop" [class.border-right]="borderRight" [class.border-bottom]="borderBottom" [class.border-left]="borderLeft"
+[class.bg2]="bg2"
+[class.bg3]="bg3"
+[class.bg4]="bg4"
+[class.bg5]="bg5"
+[class.bg6]="bg6"
+[class.bg7]="bg7"
+[class.bg8]="bg8"
+[class.bg9]="bg9">
+    <div class="shaded" *ngIf="shaded"></div>
+    <div class="highlight" *ngIf="selected"></div>
+    <div class="corner-content top left" *ngIf="!fixedContent && !realContent">{{getCornerContent(1)}}</div>
+    <div class="corner-content top right" *ngIf="!fixedContent && !realContent">{{getCornerContent(2)}}</div>
+    <div class="corner-content bottom left" *ngIf="!fixedContent && !realContent">{{getCornerContent(3)}}</div>
+    <div class="corner-content bottom right" *ngIf="!fixedContent && !realContent">{{getCornerContent(4)}}</div>
+    <div class="corner-content top center" *ngIf="!fixedContent && !realContent">{{getCornerContent(5)}}</div>
+    <div class="corner-content bottom center" *ngIf="!fixedContent && !realContent">{{getCornerContent(6)}}</div>
+    <div class="corner-content middle left" *ngIf="!fixedContent && !realContent">{{getCornerContent(7)}}</div>
+    <div class="corner-content middle right" *ngIf="!fixedContent && !realContent">{{getCornerContent(8)}}</div>
+    <div class="center-content" *ngIf="!fixedContent && !realContent">{{centerContent}}</div>
+    <div class="content" *ngIf="!fixedContent">{{realContent}}</div>
+    <div class="content fixed">{{fixedContent}}</div>
+</div>
