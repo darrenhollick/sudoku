@@ -7,6 +7,8 @@ import { Component, HostListener, OnInit } from "@angular/core";
 })
 export class AppComponent implements OnInit {
 
+    selectedSquares: Array<string> = [];
+
     fixedRow1Col1 = "";
     fixedRow1Col2 = "";
     fixedRow1Col3 = "";
@@ -257,6 +259,26 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         this.calcScale(window.innerWidth, window.innerHeight);
+    }
+
+
+    isSelected(row: number, col: number): boolean {
+        if (this.selectedSquares.includes(`${row},${col}`)) {
+            return true;
+        }
+        return false;
+    }
+
+    squareClicked(row: number, col: number, event: MouseEvent) {
+        // TODO: there seems to be crazy lag when calling this method...
+        console.log("squareClicked", row, col, event);
+        const key = `${row},${col}`;
+        if (event.ctrlKey && !this.selectedSquares.includes(key)) {
+            this.selectedSquares.push(key);
+            event.preventDefault();
+        } else {
+            this.selectedSquares = [ key ];
+        }
     }
 
     @HostListener("window:resize", ["$event"])

@@ -1,26 +1,26 @@
 <div class="app-wrapper">
     <div class="puzzle-grid">
         <div class="puzzle-row">
-            <app-puzzle-square [row]="1" [column]="1" [borderSettings]="borderRow1Col1" [shaded]="shadedRow1Col1" [fixedContent]="fixedRow1Col1" #row1col1></app-puzzle-square>
-            <app-puzzle-square [row]="1" [column]="2" [borderSettings]="borderRow1Col2" [shaded]="shadedRow1Col2" [fixedContent]="fixedRow1Col2" #row1col2></app-puzzle-square>
-            <app-puzzle-square [row]="1" [column]="3" [borderSettings]="borderRow1Col3" [shaded]="shadedRow1Col3" [fixedContent]="fixedRow1Col3" #row1col3></app-puzzle-square>
-            <app-puzzle-square [row]="1" [column]="4" [borderSettings]="borderRow1Col4" [shaded]="shadedRow1Col4" [fixedContent]="fixedRow1Col4" #row1col4></app-puzzle-square>
-            <app-puzzle-square [row]="1" [column]="5" [borderSettings]="borderRow1Col5" [shaded]="shadedRow1Col5" [fixedContent]="fixedRow1Col5" #row1col5></app-puzzle-square>
-            <app-puzzle-square [row]="1" [column]="6" [borderSettings]="borderRow1Col6" [shaded]="shadedRow1Col6" [fixedContent]="fixedRow1Col6" #row1col6></app-puzzle-square>
-            <app-puzzle-square [row]="1" [column]="7" [borderSettings]="borderRow1Col7" [shaded]="shadedRow1Col7" [fixedContent]="fixedRow1Col7" #row1col7></app-puzzle-square>
-            <app-puzzle-square [row]="1" [column]="8" [borderSettings]="borderRow1Col8" [shaded]="shadedRow1Col8" [fixedContent]="fixedRow1Col8" #row1col8></app-puzzle-square>
-            <app-puzzle-square [row]="1" [column]="9" [borderSettings]="borderRow1Col9" [shaded]="shadedRow1Col9" [fixedContent]="fixedRow1Col9" #row1col9></app-puzzle-square>
+            <app-puzzle-square (click)="squareClicked(1, 1, $event)" [selected]="isSelected(1,1)" [row]="1" [column]="1" [borderSettings]="borderRow1Col1" [shaded]="shadedRow1Col1" [fixedContent]="fixedRow1Col1" #row1col1></app-puzzle-square>
+            <app-puzzle-square (click)="squareClicked(1, 2, $event)" [selected]="isSelected(1,2)" [row]="1" [column]="2" [borderSettings]="borderRow1Col2" [shaded]="shadedRow1Col2" [fixedContent]="fixedRow1Col2" #row1col2></app-puzzle-square>
+            <app-puzzle-square (click)="squareClicked(1, 3, $event)" [selected]="isSelected(1,3)" [row]="1" [column]="3" [borderSettings]="borderRow1Col3" [shaded]="shadedRow1Col3" [fixedContent]="fixedRow1Col3" #row1col3></app-puzzle-square>
+            <app-puzzle-square (click)="squareClicked(1, 4, $event)" [selected]="isSelected(1,4)" [row]="1" [column]="4" [borderSettings]="borderRow1Col4" [shaded]="shadedRow1Col4" [fixedContent]="fixedRow1Col4" #row1col4></app-puzzle-square>
+            <app-puzzle-square (click)="squareClicked(1, 5, $event)" [selected]="isSelected(1,5)" [row]="1" [column]="5" [borderSettings]="borderRow1Col5" [shaded]="shadedRow1Col5" [fixedContent]="fixedRow1Col5" #row1col5></app-puzzle-square>
+            <app-puzzle-square (click)="squareClicked(1, 6, $event)" [selected]="isSelected(1,6)" [row]="1" [column]="6" [borderSettings]="borderRow1Col6" [shaded]="shadedRow1Col6" [fixedContent]="fixedRow1Col6" #row1col6></app-puzzle-square>
+            <app-puzzle-square (click)="squareClicked(1, 7, $event)" [selected]="isSelected(1,7)" [row]="1" [column]="7" [borderSettings]="borderRow1Col7" [shaded]="shadedRow1Col7" [fixedContent]="fixedRow1Col7" #row1col7></app-puzzle-square>
+            <app-puzzle-square (click)="squareClicked(1, 8, $event)" [selected]="isSelected(1,8)" [row]="1" [column]="8" [borderSettings]="borderRow1Col8" [shaded]="shadedRow1Col8" [fixedContent]="fixedRow1Col8" #row1col8></app-puzzle-square>
+            <app-puzzle-square (click)="squareClicked(1, 9, $event)" [selected]="isSelected(1,9)" [row]="1" [column]="9" [borderSettings]="borderRow1Col9" [shaded]="shadedRow1Col9" [fixedContent]="fixedRow1Col9" #row1col9></app-puzzle-square>
         </div>
         <div class="puzzle-row">
-            <app-puzzle-square [row]="2" [column]="1" [borderSettings]="borderRow2Col1" [shaded]="shadedRow2Col1" [fixedContent]="fixedRow2Col1" #row1col1></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="2" [borderSettings]="borderRow2Col2" [shaded]="shadedRow2Col2" [fixedContent]="fixedRow2Col2" #row1col2></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="3" [borderSettings]="borderRow2Col3" [shaded]="shadedRow2Col3" [fixedContent]="fixedRow2Col3" #row1col3></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="4" [borderSettings]="borderRow2Col4" [shaded]="shadedRow2Col4" [fixedContent]="fixedRow2Col4" #row1col4></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="5" [borderSettings]="borderRow2Col5" [shaded]="shadedRow2Col5" [fixedContent]="fixedRow2Col5" #row1col5></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="6" [borderSettings]="borderRow2Col6" [shaded]="shadedRow2Col6" [fixedContent]="fixedRow2Col6" #row1col6></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="7" [borderSettings]="borderRow2Col7" [shaded]="shadedRow2Col7" [fixedContent]="fixedRow2Col7" #row1col7></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="8" [borderSettings]="borderRow2Col8" [shaded]="shadedRow2Col8" [fixedContent]="fixedRow2Col8" #row1col8></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="9" [borderSettings]="borderRow2Col9" [shaded]="shadedRow2Col9" [fixedContent]="fixedRow2Col9" #row1col9></app-puzzle-square>
+            <app-puzzle-square (click)="squareClicked(2, 1, $event)" [row]="2" [column]="1" [borderSettings]="borderRow2Col1" [shaded]="shadedRow2Col1" [fixedContent]="fixedRow2Col1" #row2col1></app-puzzle-square>
+            <app-puzzle-square [row]="2" [column]="2" [borderSettings]="borderRow2Col2" [shaded]="shadedRow2Col2" [fixedContent]="fixedRow2Col2" #row2col2></app-puzzle-square>
+            <app-puzzle-square [row]="2" [column]="3" [borderSettings]="borderRow2Col3" [shaded]="shadedRow2Col3" [fixedContent]="fixedRow2Col3" #row2col3></app-puzzle-square>
+            <app-puzzle-square [row]="2" [column]="4" [borderSettings]="borderRow2Col4" [shaded]="shadedRow2Col4" [fixedContent]="fixedRow2Col4" #row2col4></app-puzzle-square>
+            <app-puzzle-square [row]="2" [column]="5" [borderSettings]="borderRow2Col5" [shaded]="shadedRow2Col5" [fixedContent]="fixedRow2Col5" #row2col5></app-puzzle-square>
+            <app-puzzle-square [row]="2" [column]="6" [borderSettings]="borderRow2Col6" [shaded]="shadedRow2Col6" [fixedContent]="fixedRow2Col6" #row2col6></app-puzzle-square>
+            <app-puzzle-square [row]="2" [column]="7" [borderSettings]="borderRow2Col7" [shaded]="shadedRow2Col7" [fixedContent]="fixedRow2Col7" #row2col7></app-puzzle-square>
+            <app-puzzle-square [row]="2" [column]="8" [borderSettings]="borderRow2Col8" [shaded]="shadedRow2Col8" [fixedContent]="fixedRow2Col8" #row2col8></app-puzzle-square>
+            <app-puzzle-square [row]="2" [column]="9" [borderSettings]="borderRow2Col9" [shaded]="shadedRow2Col9" [fixedContent]="fixedRow2Col9" #row2col9></app-puzzle-square>
         </div>
         <div class="puzzle-row">
             <app-puzzle-square [row]="3" [column]="1" [borderSettings]="borderRow3Col1" [shaded]="shadedRow3Col1" [fixedContent]="fixedRow3Col1" #row1col1></app-puzzle-square>

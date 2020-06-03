@@ -42,10 +42,15 @@ export class PuzzleSquareComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    @HostListener("click", ["$event"])
-    clickEvent(event: MouseEvent) {
-        console.log(`clicked x:${this.column} y:${this.row}`, event);
-    }
+    // @HostListener("click", ["$event"])
+    // clickEvent(event: MouseEvent) {
+    //     console.log(`clicked x:${this.column} y:${this.row}`, event);
+    //     if (!event.ctrlKey) {
+    //         // TODO: alert other squares to set selected = false
+    //     }
+
+    //     this.selected = true;
+    // }
 
     @HostListener("window:keydown", ["$event"])
     keyEvent(event: KeyboardEvent) {
