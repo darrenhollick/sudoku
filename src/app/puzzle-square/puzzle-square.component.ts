@@ -77,29 +77,6 @@ export class PuzzleSquareComponent implements OnInit {
             return;
         }
 
-        if (event.key !== "1"
-            && event.key !== "2"
-            && event.key !== "3"
-            && event.key !== "4"
-            && event.key !== "5"
-            && event.key !== "6"
-            && event.key !== "7"
-            && event.key !== "8"
-            && event.key !== "9"
-            && event.key !== "!"
-            && event.key !== "@"
-            && event.key !== "#"
-            && event.key !== "$"
-            && event.key !== "%"
-            && event.key !== "^"
-            && event.key !== "&"
-            && event.key !== "*"
-            && event.key !== "("
-            && event.key !== "Backspace"
-            && event.key !== "Delete") {
-            return;
-        }
-
         if (event.key === "Backspace" || event.key === "Delete") {
             if (this.realContent) {
                 this.realContent = "";
@@ -110,28 +87,69 @@ export class PuzzleSquareComponent implements OnInit {
             return;
         }
 
+        if (!this.isNumber(event.key)
+            && event.key !== "!"
+            && event.key !== "@"
+            && event.key !== "#"
+            && event.key !== "$"
+            && event.key !== "%"
+            && event.key !== "^"
+            && event.key !== "&"
+            && event.key !== "*"
+            && event.key !== "("
+            && event.code !== "Numpad1"
+            && event.code !== "Numpad2"
+            && event.code !== "Numpad3"
+            && event.code !== "Numpad4"
+            && event.code !== "Numpad5"
+            && event.code !== "Numpad6"
+            && event.code !== "Numpad7"
+            && event.code !== "Numpad8"
+            && event.code !== "Numpad9"
+            // && event.key !== "End"         // Shift Num 1
+            // && event.key !== "ArrowDown"   // Shift Num 2
+            // && event.key !== "PageDown"    // Shift Num 3
+            // && event.key !== "ArrowLeft"   // Shift Num 4
+            // && event.key !== "Clear"       // Shift Num 5
+            // && event.key !== "ArrowRight"  // Shift Num 6
+            // && event.key !== "Home"        // Shift Num 7
+            // && event.key !== "ArrowUp"     // Shift Num 8
+            // && event.key !== "PageUp"      // Shift Num 9
+            && event.key !== "Backspace"
+            && event.key !== "Delete") {
+            return;
+        }
 
-        if (event.altKey === true) {
+        console.log("key", event);
+
+        if (event.altKey === true && this.isNumber(event.key)) {
             this.setColor(event.key);
-        } else if (event.ctrlKey === true) {
+        } else if (event.ctrlKey === true && this.isNumber(event.key)) {
             this.setCenterContent(event.key);
-        } else if (event.shiftKey === true) {
+        } else if (event.shiftKey === true || event.code.startsWith("Numpad")) {
             let key = event.key;
-            if (event.key === "!") { key = "1"; }
-            if (event.key === "@") { key = "2"; }
-            if (event.key === "#") { key = "3"; }
-            if (event.key === "$") { key = "4"; }
-            if (event.key === "%") { key = "5"; }
-            if (event.key === "^") { key = "6"; }
-            if (event.key === "&") { key = "7"; }
-            if (event.key === "*") { key = "8"; }
-            if (event.key === "(") { key = "9"; }
+            if (event.key === "!" || event.code === "Numpad1") { key = "1"; }
+            if (event.key === "@" || event.code === "Numpad2") { key = "2"; }
+            if (event.key === "#" || event.code === "Numpad3") { key = "3"; }
+            if (event.key === "$" || event.code === "Numpad4") { key = "4"; }
+            if (event.key === "%" || event.code === "Numpad5") { key = "5"; }
+            if (event.key === "^" || event.code === "Numpad6") { key = "6"; }
+            if (event.key === "&" || event.code === "Numpad7") { key = "7"; }
+            if (event.key === "*" || event.code === "Numpad8") { key = "8"; }
+            if (event.key === "(" || event.code === "Numpad9") { key = "9"; }
             this.setCornerContent(key);
-        } else {
+        } else if (this.isNumber(event.key)) {
             this.setContent(event.key);
         }
 
         event.preventDefault();
+    }
+    isNumber(input: string): boolean {
+        if (input === "1" || input === "2" || input === "3" || input === "4" || input === "5" || input === "6" || input === "7" || input === "8" || input === "9") {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     setCenterContent(input: string) {
