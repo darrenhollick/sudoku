@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     }
 
     squareMouseDown(row: number, col: number, event: MouseEvent) {
-        // TODO: there seems to be crazy lag when calling this method...
+        // TODO: there seems to be crazy lag when calling this method with modifiers like ctrl...
         // console.log("squareClicked", row, col, event);
         event.preventDefault();
         event.stopPropagation();
