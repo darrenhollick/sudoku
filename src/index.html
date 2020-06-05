@@ -1,13 +1,33 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>SudokuApp</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="utf-8">
+    <title>SudokuApp</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
-  <app-root></app-root>
+    <div onmousedown="test(event)" style="padding:5px; margin:5px; background:#eee;">test 1</div>
+    <div onmousedown="test(event)" style="padding:5px; margin:5px; background:#eee;">test 2</div>
+    <div onmousedown="test(event)" style="padding:5px; margin:5px; background:#eee;">test 3</div>
+    <div id="log"></div>
+    <app-root></app-root>
 </body>
+
+<script>
+    function test() {
+        //console.log("test",  event);
+        event.preventDefault();
+        // event.stopPropagation();
+        var el = document.getElementById("log");
+        el.innerHTML += "[" + new Date().toISOString() + "] clicked ctrl:" + event.ctrlKey + "   shift:" + event.shiftKey + "<br/>";
+    }
+
+    window.addEventListener("keydown", (event) => {
+        event.key === "Ctrl"
+    });
+</script>
 </html>

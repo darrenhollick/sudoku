@@ -1,0 +1,32 @@
+.app-wrapper {
+    padding: 20px;
+    // display: flex;
+    // flex-wrap: wrap;
+}
+
+.puzzle-grid {
+    // width: (75 * 9) + px;
+    // max-width: (75 * 9) + px;
+    // height: (75 * 9) + px;
+    // max-height: (75 * 9) + px;
+    position: relative;
+    float: left;
+
+    .puzzle-extras {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        z-index: 70;
+        pointer-events: none;
+    }
+
+    .puzzle-row {
+        display: flex;
+    }
+}
+
+.controls-wrapper {
+    max-width: 300px;
+}

@@ -4,5 +4,13 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.exclude": {
+			"dist/": true,
+			"node_modules/": true
+		},
+		"html.format.wrapLineLength": 0,
+        "editor.detectIndentation": false,
+        "typescript.preferences.quoteStyle": "double"
+	}
 }
