@@ -29,8 +29,8 @@ export class AppComponent implements OnInit {
     }
 
     loadPuzzleConfig(puzzleId: string) {
-        console.log(`${window.location.origin}/assets/puzzles/${puzzleId}.json`);
-        this.http.get<PuzzleConfig>(`${window.location.origin}/assets/puzzles/${puzzleId}.json`).subscribe(data => {
+        // console.log(`${window.location.href}/assets/puzzles/${puzzleId}.json`);
+        this.http.get<PuzzleConfig>(`${window.location.href}/assets/puzzles/${puzzleId}.json`).subscribe(data => {
             this.squareConfigs = data.squares;
             this.puzzleInstructions = data.instructions;
             this.puzzleTitle = data.title;
