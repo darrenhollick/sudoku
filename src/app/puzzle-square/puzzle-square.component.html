@@ -9,6 +9,15 @@
 [class.bg9]="bg9">
     <div class="shaded" *ngIf="shaded"></div>
     <div class="highlight" *ngIf="selected"></div>
+    <div class="cage" [class.border-top]="cageTop"
+                      [class.border-right]="cageRight"
+                      [class.border-bottom]="cageBottom"
+                      [class.border-left]="cageLeft"
+                      [class.pad-top]="cageTop"
+                      [class.pad-right]="cageRight"
+                      [class.pad-bottom]="cageBottom"
+                      [class.pad-left]="cageLeft"></div>
+    <div class="cage-content" *ngIf="cageValue">{{cageValue}}</div>
     <div class="corner-content top left" *ngIf="!fixedContent && !realContent">{{getCornerContent(1)}}</div>
     <div class="corner-content top right" *ngIf="!fixedContent && !realContent">{{getCornerContent(2)}}</div>
     <div class="corner-content bottom left" *ngIf="!fixedContent && !realContent">{{getCornerContent(3)}}</div>

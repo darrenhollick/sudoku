@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, HostListener } from "@angular/core";
+import { SquareConfig } from "../sudoku/square-config.interface";
 
 @Component({
     selector: "app-puzzle-square",
@@ -7,22 +8,40 @@ import { Component, OnInit, Input, HostListener } from "@angular/core";
 })
 export class PuzzleSquareComponent implements OnInit {
 
-    @Input() row: number;
-    @Input() column: number;
+    @Input() set config(value: SquareConfig) {
+        if (value) {
+            if (value.fixedContent) { this.fixedContent = value.fixedContent; }
+            if (value.thickBorders) {
+                const parts = value.thickBorders.split(",");
+                if (parts.length >= 1 && parts[0].trim() === "1") { this.borderTop = true; }
+                if (parts.length >= 2 && parts[1].trim() === "1") { this.borderRight = true; }
+                if (parts.length >= 3 && parts[2].trim() === "1") { this.borderBottom = true; }
+                if (parts.length >= 4 && parts[3].trim() === "1") { this.borderLeft = true; }
+            }
+            if (value.cageBorders) {
+                const parts = value.cageBorders.split(",");
+                if (parts.length >= 1 && parts[0].trim() === "1") { this.cageTop = true; }
+                if (parts.length >= 2 && parts[1].trim() === "1") { this.cageRight = true; }
+                if (parts.length >= 3 && parts[2].trim() === "1") { this.cageBottom = true; }
+                if (parts.length >= 4 && parts[3].trim() === "1") { this.cageLeft = true; }
+            }
+            if (value.cageValue) { this.cageValue = value.cageValue; }
+            if (value.shaded) { this.shaded = value.shaded; }
+        }
+    }
+    @Input() selected = false;
+
     borderTop = false;
     borderRight = false;
     borderBottom = false;
     borderLeft = false;
-    @Input() set borderSettings(value: string) {
-        const parts = value.split(",");
-        if (parts.length >= 1 && parts[0].trim() === "1") { this.borderTop = true; }
-        if (parts.length >= 2 && parts[1].trim() === "1") { this.borderRight = true; }
-        if (parts.length >= 3 && parts[2].trim() === "1") { this.borderBottom = true; }
-        if (parts.length >= 4 && parts[3].trim() === "1") { this.borderLeft = true; }
-    }
-    @Input() selected = false;
-    @Input() shaded = false;
-    @Input() fixedContent: string;
+    cageTop = false;
+    cageRight = false;
+    cageBottom = false;
+    cageLeft = false;
+    cageValue: string;
+    shaded = false;
+    fixedContent: string;
 
     realContent = "";
     centerContent = "";

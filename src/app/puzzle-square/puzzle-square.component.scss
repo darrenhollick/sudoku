@@ -4,8 +4,10 @@
     height: 80px;
     border-right: 1px solid #000;
     border-bottom: 1px solid #000;
-    background: #fff;
+    //background: #fff;
     cursor: pointer;
+    user-select: none;
+    z-index: 100;
 
     &.border-top { border-top: 3px solid #000; }
     &.border-right { border-right: 3px solid #000; }
@@ -22,13 +24,39 @@
     &.bg9 { background: rgba(52, 187, 230, .5); }
 }
 
+.cage {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    &.pad-top { top: 3px; }
+    &.pad-right { right: 3px; }
+    &.pad-bottom { bottom: 3px; }
+    &.pad-left { left: 3px; }
+    &.border-top { border-top: 1px dashed #000; }
+    &.border-right { border-right: 1px dashed #000; }
+    &.border-bottom { border-bottom: 1px dashed #000; }
+    &.border-left { border-left: 1px dashed #000; }
+}
+.cage-content {
+    position: absolute;
+    top: 0;
+    left: 12px;
+    background: #fff;
+    font-size: 15px;
+    z-index: 40;
+}
+
 .shaded {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, .3);
+    background: rgba(0, 0, 0, .2);
+    z-index: 50;
 }
 .highlight {
     position: absolute;
@@ -36,10 +64,12 @@
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 100;
     background: rgba(255, 215, 0, .5);
 }
 .corner-content {
     position: absolute;
+    z-index: 100;
     font-family: Tahoma, Verdana, Geneva, sans-serif;
     font-size: 20px;
     color: #1d6ae5;
@@ -75,6 +105,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    z-index: 100;
     transform: translate(-50%, -50%);
     text-align: center;
     font-family: Tahoma, Verdana, Geneva, sans-serif;
@@ -90,6 +121,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    z-index: 100;
     transform: translate(-50%, -50%);
     text-align: center;
     font-family: Tahoma, Verdana, Geneva, sans-serif;

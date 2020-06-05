@@ -10,7 +10,24 @@
 </head>
 
 <body>
+    <div onmousedown="test(event)" style="padding:5px; margin:5px; background:#eee;">test 1</div>
+    <div onmousedown="test(event)" style="padding:5px; margin:5px; background:#eee;">test 2</div>
+    <div onmousedown="test(event)" style="padding:5px; margin:5px; background:#eee;">test 3</div>
+    <div id="log"></div>
     <app-root></app-root>
 </body>
 
+<script>
+    function test() {
+        //console.log("test",  event);
+        event.preventDefault();
+        // event.stopPropagation();
+        var el = document.getElementById("log");
+        el.innerHTML += "[" + new Date().toISOString() + "] clicked ctrl:" + event.ctrlKey + "   shift:" + event.shiftKey + "<br/>";
+    }
+
+    window.addEventListener("keydown", (event) => {
+        event.key === "Ctrl"
+    });
+</script>
 </html>

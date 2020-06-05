@@ -1,103 +1,109 @@
 <div class="app-wrapper">
     <div class="puzzle-grid">
+        <!-- 
+        <svg class="puzzle-extras" viewBox="0 0 1000 1000">
+            <line x1="0" y1="0" x2="1000" y2="1000" stroke="rgb(210, 59, 231)" stroke-width="3" />
+            <line x1="1000" y1="0" x2="0" y2="1000" stroke="rgb(210, 59, 231)" stroke-width="3" />
+        </svg>
+        -->
         <div class="puzzle-row">
-            <app-puzzle-square (click)="squareClicked(1, 1, $event)" [selected]="isSelected(1,1)" [row]="1" [column]="1" [borderSettings]="borderRow1Col1" [shaded]="shadedRow1Col1" [fixedContent]="fixedRow1Col1" #row1col1></app-puzzle-square>
-            <app-puzzle-square (click)="squareClicked(1, 2, $event)" [selected]="isSelected(1,2)" [row]="1" [column]="2" [borderSettings]="borderRow1Col2" [shaded]="shadedRow1Col2" [fixedContent]="fixedRow1Col2" #row1col2></app-puzzle-square>
-            <app-puzzle-square (click)="squareClicked(1, 3, $event)" [selected]="isSelected(1,3)" [row]="1" [column]="3" [borderSettings]="borderRow1Col3" [shaded]="shadedRow1Col3" [fixedContent]="fixedRow1Col3" #row1col3></app-puzzle-square>
-            <app-puzzle-square (click)="squareClicked(1, 4, $event)" [selected]="isSelected(1,4)" [row]="1" [column]="4" [borderSettings]="borderRow1Col4" [shaded]="shadedRow1Col4" [fixedContent]="fixedRow1Col4" #row1col4></app-puzzle-square>
-            <app-puzzle-square (click)="squareClicked(1, 5, $event)" [selected]="isSelected(1,5)" [row]="1" [column]="5" [borderSettings]="borderRow1Col5" [shaded]="shadedRow1Col5" [fixedContent]="fixedRow1Col5" #row1col5></app-puzzle-square>
-            <app-puzzle-square (click)="squareClicked(1, 6, $event)" [selected]="isSelected(1,6)" [row]="1" [column]="6" [borderSettings]="borderRow1Col6" [shaded]="shadedRow1Col6" [fixedContent]="fixedRow1Col6" #row1col6></app-puzzle-square>
-            <app-puzzle-square (click)="squareClicked(1, 7, $event)" [selected]="isSelected(1,7)" [row]="1" [column]="7" [borderSettings]="borderRow1Col7" [shaded]="shadedRow1Col7" [fixedContent]="fixedRow1Col7" #row1col7></app-puzzle-square>
-            <app-puzzle-square (click)="squareClicked(1, 8, $event)" [selected]="isSelected(1,8)" [row]="1" [column]="8" [borderSettings]="borderRow1Col8" [shaded]="shadedRow1Col8" [fixedContent]="fixedRow1Col8" #row1col8></app-puzzle-square>
-            <app-puzzle-square (click)="squareClicked(1, 9, $event)" [selected]="isSelected(1,9)" [row]="1" [column]="9" [borderSettings]="borderRow1Col9" [shaded]="shadedRow1Col9" [fixedContent]="fixedRow1Col9" #row1col9></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(1,1,$event)" (mouseenter)="squareEntered(1,1,$event)" [config]="getSquareConfig(1,1)" [selected]="isSelected(1,1)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(1,2,$event)" (mouseenter)="squareEntered(1,2,$event)" [config]="getSquareConfig(1,2)" [selected]="isSelected(1,2)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(1,3,$event)" (mouseenter)="squareEntered(1,3,$event)" [config]="getSquareConfig(1,3)" [selected]="isSelected(1,3)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(1,4,$event)" (mouseenter)="squareEntered(1,4,$event)" [config]="getSquareConfig(1,4)" [selected]="isSelected(1,4)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(1,5,$event)" (mouseenter)="squareEntered(1,5,$event)" [config]="getSquareConfig(1,5)" [selected]="isSelected(1,5)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(1,6,$event)" (mouseenter)="squareEntered(1,6,$event)" [config]="getSquareConfig(1,6)" [selected]="isSelected(1,6)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(1,7,$event)" (mouseenter)="squareEntered(1,7,$event)" [config]="getSquareConfig(1,7)" [selected]="isSelected(1,7)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(1,8,$event)" (mouseenter)="squareEntered(1,8,$event)" [config]="getSquareConfig(1,8)" [selected]="isSelected(1,8)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(1,9,$event)" (mouseenter)="squareEntered(1,9,$event)" [config]="getSquareConfig(1,9)" [selected]="isSelected(1,9)"></app-puzzle-square>
         </div>
         <div class="puzzle-row">
-            <app-puzzle-square (click)="squareClicked(2, 1, $event)" [row]="2" [column]="1" [borderSettings]="borderRow2Col1" [shaded]="shadedRow2Col1" [fixedContent]="fixedRow2Col1" #row2col1></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="2" [borderSettings]="borderRow2Col2" [shaded]="shadedRow2Col2" [fixedContent]="fixedRow2Col2" #row2col2></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="3" [borderSettings]="borderRow2Col3" [shaded]="shadedRow2Col3" [fixedContent]="fixedRow2Col3" #row2col3></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="4" [borderSettings]="borderRow2Col4" [shaded]="shadedRow2Col4" [fixedContent]="fixedRow2Col4" #row2col4></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="5" [borderSettings]="borderRow2Col5" [shaded]="shadedRow2Col5" [fixedContent]="fixedRow2Col5" #row2col5></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="6" [borderSettings]="borderRow2Col6" [shaded]="shadedRow2Col6" [fixedContent]="fixedRow2Col6" #row2col6></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="7" [borderSettings]="borderRow2Col7" [shaded]="shadedRow2Col7" [fixedContent]="fixedRow2Col7" #row2col7></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="8" [borderSettings]="borderRow2Col8" [shaded]="shadedRow2Col8" [fixedContent]="fixedRow2Col8" #row2col8></app-puzzle-square>
-            <app-puzzle-square [row]="2" [column]="9" [borderSettings]="borderRow2Col9" [shaded]="shadedRow2Col9" [fixedContent]="fixedRow2Col9" #row2col9></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(2,1,$event)" (mouseenter)="squareEntered(2,1,$event)" [config]="getSquareConfig(2,1)" [selected]="isSelected(2,1)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(2,2,$event)" (mouseenter)="squareEntered(2,2,$event)" [config]="getSquareConfig(2,2)" [selected]="isSelected(2,2)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(2,3,$event)" (mouseenter)="squareEntered(2,3,$event)" [config]="getSquareConfig(2,3)" [selected]="isSelected(2,3)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(2,4,$event)" (mouseenter)="squareEntered(2,4,$event)" [config]="getSquareConfig(2,4)" [selected]="isSelected(2,4)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(2,5,$event)" (mouseenter)="squareEntered(2,5,$event)" [config]="getSquareConfig(2,5)" [selected]="isSelected(2,5)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(2,6,$event)" (mouseenter)="squareEntered(2,6,$event)" [config]="getSquareConfig(2,6)" [selected]="isSelected(2,6)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(2,7,$event)" (mouseenter)="squareEntered(2,7,$event)" [config]="getSquareConfig(2,7)" [selected]="isSelected(2,7)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(2,8,$event)" (mouseenter)="squareEntered(2,8,$event)" [config]="getSquareConfig(2,8)" [selected]="isSelected(2,8)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(2,9,$event)" (mouseenter)="squareEntered(2,9,$event)" [config]="getSquareConfig(2,9)" [selected]="isSelected(2,9)"></app-puzzle-square>
         </div>
         <div class="puzzle-row">
-            <app-puzzle-square [row]="3" [column]="1" [borderSettings]="borderRow3Col1" [shaded]="shadedRow3Col1" [fixedContent]="fixedRow3Col1" #row1col1></app-puzzle-square>
-            <app-puzzle-square [row]="3" [column]="2" [borderSettings]="borderRow3Col2" [shaded]="shadedRow3Col2" [fixedContent]="fixedRow3Col2" #row1col2></app-puzzle-square>
-            <app-puzzle-square [row]="3" [column]="3" [borderSettings]="borderRow3Col3" [shaded]="shadedRow3Col3" [fixedContent]="fixedRow3Col3" #row1col3></app-puzzle-square>
-            <app-puzzle-square [row]="3" [column]="4" [borderSettings]="borderRow3Col4" [shaded]="shadedRow3Col4" [fixedContent]="fixedRow3Col4" #row1col4></app-puzzle-square>
-            <app-puzzle-square [row]="3" [column]="5" [borderSettings]="borderRow3Col5" [shaded]="shadedRow3Col5" [fixedContent]="fixedRow3Col5" #row1col5></app-puzzle-square>
-            <app-puzzle-square [row]="3" [column]="6" [borderSettings]="borderRow3Col6" [shaded]="shadedRow3Col6" [fixedContent]="fixedRow3Col6" #row1col6></app-puzzle-square>
-            <app-puzzle-square [row]="3" [column]="7" [borderSettings]="borderRow3Col7" [shaded]="shadedRow3Col7" [fixedContent]="fixedRow3Col7" #row1col7></app-puzzle-square>
-            <app-puzzle-square [row]="3" [column]="8" [borderSettings]="borderRow3Col8" [shaded]="shadedRow3Col8" [fixedContent]="fixedRow3Col8" #row1col8></app-puzzle-square>
-            <app-puzzle-square [row]="3" [column]="9" [borderSettings]="borderRow3Col9" [shaded]="shadedRow3Col9" [fixedContent]="fixedRow3Col9" #row1col9></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(3,1,$event)" (mouseenter)="squareEntered(3,1,$event)" [config]="getSquareConfig(3,1)" [selected]="isSelected(3,1)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(3,2,$event)" (mouseenter)="squareEntered(3,2,$event)" [config]="getSquareConfig(3,2)" [selected]="isSelected(3,2)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(3,3,$event)" (mouseenter)="squareEntered(3,3,$event)" [config]="getSquareConfig(3,3)" [selected]="isSelected(3,3)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(3,4,$event)" (mouseenter)="squareEntered(3,4,$event)" [config]="getSquareConfig(3,4)" [selected]="isSelected(3,4)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(3,5,$event)" (mouseenter)="squareEntered(3,5,$event)" [config]="getSquareConfig(3,5)" [selected]="isSelected(3,5)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(3,6,$event)" (mouseenter)="squareEntered(3,6,$event)" [config]="getSquareConfig(3,6)" [selected]="isSelected(3,6)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(3,7,$event)" (mouseenter)="squareEntered(3,7,$event)" [config]="getSquareConfig(3,7)" [selected]="isSelected(3,7)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(3,8,$event)" (mouseenter)="squareEntered(3,8,$event)" [config]="getSquareConfig(3,8)" [selected]="isSelected(3,8)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(3,9,$event)" (mouseenter)="squareEntered(3,9,$event)" [config]="getSquareConfig(3,9)" [selected]="isSelected(3,9)"></app-puzzle-square>
         </div>
         <div class="puzzle-row">
-            <app-puzzle-square [row]="4" [column]="1" [borderSettings]="borderRow4Col1" [shaded]="shadedRow4Col1" [fixedContent]="fixedRow4Col1" #row1col1></app-puzzle-square>
-            <app-puzzle-square [row]="4" [column]="2" [borderSettings]="borderRow4Col2" [shaded]="shadedRow4Col2" [fixedContent]="fixedRow4Col2" #row1col2></app-puzzle-square>
-            <app-puzzle-square [row]="4" [column]="3" [borderSettings]="borderRow4Col3" [shaded]="shadedRow4Col3" [fixedContent]="fixedRow4Col3" #row1col3></app-puzzle-square>
-            <app-puzzle-square [row]="4" [column]="4" [borderSettings]="borderRow4Col4" [shaded]="shadedRow4Col4" [fixedContent]="fixedRow4Col4" #row1col4></app-puzzle-square>
-            <app-puzzle-square [row]="4" [column]="5" [borderSettings]="borderRow4Col5" [shaded]="shadedRow4Col5" [fixedContent]="fixedRow4Col5" #row1col5></app-puzzle-square>
-            <app-puzzle-square [row]="4" [column]="6" [borderSettings]="borderRow4Col6" [shaded]="shadedRow4Col6" [fixedContent]="fixedRow4Col6" #row1col6></app-puzzle-square>
-            <app-puzzle-square [row]="4" [column]="7" [borderSettings]="borderRow4Col7" [shaded]="shadedRow4Col7" [fixedContent]="fixedRow4Col7" #row1col7></app-puzzle-square>
-            <app-puzzle-square [row]="4" [column]="8" [borderSettings]="borderRow4Col8" [shaded]="shadedRow4Col8" [fixedContent]="fixedRow4Col8" #row1col8></app-puzzle-square>
-            <app-puzzle-square [row]="4" [column]="9" [borderSettings]="borderRow4Col9" [shaded]="shadedRow4Col9" [fixedContent]="fixedRow4Col9" #row1col9></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(4,1,$event)" (mouseenter)="squareEntered(4,1,$event)" [config]="getSquareConfig(4,1)" [selected]="isSelected(4,1)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(4,2,$event)" (mouseenter)="squareEntered(4,2,$event)" [config]="getSquareConfig(4,2)" [selected]="isSelected(4,2)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(4,3,$event)" (mouseenter)="squareEntered(4,3,$event)" [config]="getSquareConfig(4,3)" [selected]="isSelected(4,3)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(4,4,$event)" (mouseenter)="squareEntered(4,4,$event)" [config]="getSquareConfig(4,4)" [selected]="isSelected(4,4)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(4,5,$event)" (mouseenter)="squareEntered(4,5,$event)" [config]="getSquareConfig(4,5)" [selected]="isSelected(4,5)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(4,6,$event)" (mouseenter)="squareEntered(4,6,$event)" [config]="getSquareConfig(4,6)" [selected]="isSelected(4,6)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(4,7,$event)" (mouseenter)="squareEntered(4,7,$event)" [config]="getSquareConfig(4,7)" [selected]="isSelected(4,7)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(4,8,$event)" (mouseenter)="squareEntered(4,8,$event)" [config]="getSquareConfig(4,8)" [selected]="isSelected(4,8)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(4,9,$event)" (mouseenter)="squareEntered(4,9,$event)" [config]="getSquareConfig(4,9)" [selected]="isSelected(4,9)"></app-puzzle-square>
         </div>
         <div class="puzzle-row">
-            <app-puzzle-square [row]="5" [column]="1" [borderSettings]="borderRow5Col1" [shaded]="shadedRow5Col1" [fixedContent]="fixedRow5Col1" #row1col1></app-puzzle-square>
-            <app-puzzle-square [row]="5" [column]="2" [borderSettings]="borderRow5Col2" [shaded]="shadedRow5Col2" [fixedContent]="fixedRow5Col2" #row1col2></app-puzzle-square>
-            <app-puzzle-square [row]="5" [column]="3" [borderSettings]="borderRow5Col3" [shaded]="shadedRow5Col3" [fixedContent]="fixedRow5Col3" #row1col3></app-puzzle-square>
-            <app-puzzle-square [row]="5" [column]="4" [borderSettings]="borderRow5Col4" [shaded]="shadedRow5Col4" [fixedContent]="fixedRow5Col4" #row1col4></app-puzzle-square>
-            <app-puzzle-square [row]="5" [column]="5" [borderSettings]="borderRow5Col5" [shaded]="shadedRow5Col5" [fixedContent]="fixedRow5Col5" #row1col5></app-puzzle-square>
-            <app-puzzle-square [row]="5" [column]="6" [borderSettings]="borderRow5Col6" [shaded]="shadedRow5Col6" [fixedContent]="fixedRow5Col6" #row1col6></app-puzzle-square>
-            <app-puzzle-square [row]="5" [column]="7" [borderSettings]="borderRow5Col7" [shaded]="shadedRow5Col7" [fixedContent]="fixedRow5Col7" #row1col7></app-puzzle-square>
-            <app-puzzle-square [row]="5" [column]="8" [borderSettings]="borderRow5Col8" [shaded]="shadedRow5Col8" [fixedContent]="fixedRow5Col8" #row1col8></app-puzzle-square>
-            <app-puzzle-square [row]="5" [column]="9" [borderSettings]="borderRow5Col9" [shaded]="shadedRow5Col9" [fixedContent]="fixedRow5Col9" #row1col9></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(5,1,$event)" (mouseenter)="squareEntered(5,1,$event)" [config]="getSquareConfig(5,1)" [selected]="isSelected(5,1)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(5,2,$event)" (mouseenter)="squareEntered(5,2,$event)" [config]="getSquareConfig(5,2)" [selected]="isSelected(5,2)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(5,3,$event)" (mouseenter)="squareEntered(5,3,$event)" [config]="getSquareConfig(5,3)" [selected]="isSelected(5,3)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(5,4,$event)" (mouseenter)="squareEntered(5,4,$event)" [config]="getSquareConfig(5,4)" [selected]="isSelected(5,4)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(5,5,$event)" (mouseenter)="squareEntered(5,5,$event)" [config]="getSquareConfig(5,5)" [selected]="isSelected(5,5)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(5,6,$event)" (mouseenter)="squareEntered(5,6,$event)" [config]="getSquareConfig(5,6)" [selected]="isSelected(5,6)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(5,7,$event)" (mouseenter)="squareEntered(5,7,$event)" [config]="getSquareConfig(5,7)" [selected]="isSelected(5,7)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(5,8,$event)" (mouseenter)="squareEntered(5,8,$event)" [config]="getSquareConfig(5,8)" [selected]="isSelected(5,8)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(5,9,$event)" (mouseenter)="squareEntered(5,9,$event)" [config]="getSquareConfig(5,9)" [selected]="isSelected(5,9)"></app-puzzle-square>
         </div>
         <div class="puzzle-row">
-            <app-puzzle-square [row]="6" [column]="1" [borderSettings]="borderRow6Col1" [shaded]="shadedRow6Col1" [fixedContent]="fixedRow6Col1" #row1col1></app-puzzle-square>
-            <app-puzzle-square [row]="6" [column]="2" [borderSettings]="borderRow6Col2" [shaded]="shadedRow6Col2" [fixedContent]="fixedRow6Col2" #row1col2></app-puzzle-square>
-            <app-puzzle-square [row]="6" [column]="3" [borderSettings]="borderRow6Col3" [shaded]="shadedRow6Col3" [fixedContent]="fixedRow6Col3" #row1col3></app-puzzle-square>
-            <app-puzzle-square [row]="6" [column]="4" [borderSettings]="borderRow6Col4" [shaded]="shadedRow6Col4" [fixedContent]="fixedRow6Col4" #row1col4></app-puzzle-square>
-            <app-puzzle-square [row]="6" [column]="5" [borderSettings]="borderRow6Col5" [shaded]="shadedRow6Col5" [fixedContent]="fixedRow6Col5" #row1col5></app-puzzle-square>
-            <app-puzzle-square [row]="6" [column]="6" [borderSettings]="borderRow6Col6" [shaded]="shadedRow6Col6" [fixedContent]="fixedRow6Col6" #row1col6></app-puzzle-square>
-            <app-puzzle-square [row]="6" [column]="7" [borderSettings]="borderRow6Col7" [shaded]="shadedRow6Col7" [fixedContent]="fixedRow6Col7" #row1col7></app-puzzle-square>
-            <app-puzzle-square [row]="6" [column]="8" [borderSettings]="borderRow6Col8" [shaded]="shadedRow6Col8" [fixedContent]="fixedRow6Col8" #row1col8></app-puzzle-square>
-            <app-puzzle-square [row]="6" [column]="9" [borderSettings]="borderRow6Col9" [shaded]="shadedRow6Col9" [fixedContent]="fixedRow6Col9" #row1col9></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(6,1,$event)" (mouseenter)="squareEntered(6,1,$event)" [config]="getSquareConfig(6,1)" [selected]="isSelected(6,1)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(6,2,$event)" (mouseenter)="squareEntered(6,2,$event)" [config]="getSquareConfig(6,2)" [selected]="isSelected(6,2)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(6,3,$event)" (mouseenter)="squareEntered(6,3,$event)" [config]="getSquareConfig(6,3)" [selected]="isSelected(6,3)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(6,4,$event)" (mouseenter)="squareEntered(6,4,$event)" [config]="getSquareConfig(6,4)" [selected]="isSelected(6,4)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(6,5,$event)" (mouseenter)="squareEntered(6,5,$event)" [config]="getSquareConfig(6,5)" [selected]="isSelected(6,5)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(6,6,$event)" (mouseenter)="squareEntered(6,6,$event)" [config]="getSquareConfig(6,6)" [selected]="isSelected(6,6)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(6,7,$event)" (mouseenter)="squareEntered(6,7,$event)" [config]="getSquareConfig(6,7)" [selected]="isSelected(6,7)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(6,8,$event)" (mouseenter)="squareEntered(6,8,$event)" [config]="getSquareConfig(6,8)" [selected]="isSelected(6,8)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(6,9,$event)" (mouseenter)="squareEntered(6,9,$event)" [config]="getSquareConfig(6,9)" [selected]="isSelected(6,9)"></app-puzzle-square>
         </div>
         <div class="puzzle-row">
-            <app-puzzle-square [row]="7" [column]="1" [borderSettings]="borderRow7Col1" [shaded]="shadedRow7Col1" [fixedContent]="fixedRow7Col1" #row1col1></app-puzzle-square>
-            <app-puzzle-square [row]="7" [column]="2" [borderSettings]="borderRow7Col2" [shaded]="shadedRow7Col2" [fixedContent]="fixedRow7Col2" #row1col2></app-puzzle-square>
-            <app-puzzle-square [row]="7" [column]="3" [borderSettings]="borderRow7Col3" [shaded]="shadedRow7Col3" [fixedContent]="fixedRow7Col3" #row1col3></app-puzzle-square>
-            <app-puzzle-square [row]="7" [column]="4" [borderSettings]="borderRow7Col4" [shaded]="shadedRow7Col4" [fixedContent]="fixedRow7Col4" #row1col4></app-puzzle-square>
-            <app-puzzle-square [row]="7" [column]="5" [borderSettings]="borderRow7Col5" [shaded]="shadedRow7Col5" [fixedContent]="fixedRow7Col5" #row1col5></app-puzzle-square>
-            <app-puzzle-square [row]="7" [column]="6" [borderSettings]="borderRow7Col6" [shaded]="shadedRow7Col6" [fixedContent]="fixedRow7Col6" #row1col6></app-puzzle-square>
-            <app-puzzle-square [row]="7" [column]="7" [borderSettings]="borderRow7Col7" [shaded]="shadedRow7Col7" [fixedContent]="fixedRow7Col7" #row1col7></app-puzzle-square>
-            <app-puzzle-square [row]="7" [column]="8" [borderSettings]="borderRow7Col8" [shaded]="shadedRow7Col8" [fixedContent]="fixedRow7Col8" #row1col8></app-puzzle-square>
-            <app-puzzle-square [row]="7" [column]="9" [borderSettings]="borderRow7Col9" [shaded]="shadedRow7Col9" [fixedContent]="fixedRow7Col9" #row1col9></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(7,1,$event)" (mouseenter)="squareEntered(7,1,$event)" [config]="getSquareConfig(7,1)" [selected]="isSelected(7,1)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(7,2,$event)" (mouseenter)="squareEntered(7,2,$event)" [config]="getSquareConfig(7,2)" [selected]="isSelected(7,2)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(7,3,$event)" (mouseenter)="squareEntered(7,3,$event)" [config]="getSquareConfig(7,3)" [selected]="isSelected(7,3)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(7,4,$event)" (mouseenter)="squareEntered(7,4,$event)" [config]="getSquareConfig(7,4)" [selected]="isSelected(7,4)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(7,5,$event)" (mouseenter)="squareEntered(7,5,$event)" [config]="getSquareConfig(7,5)" [selected]="isSelected(7,5)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(7,6,$event)" (mouseenter)="squareEntered(7,6,$event)" [config]="getSquareConfig(7,6)" [selected]="isSelected(7,6)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(7,7,$event)" (mouseenter)="squareEntered(7,7,$event)" [config]="getSquareConfig(7,7)" [selected]="isSelected(7,7)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(7,8,$event)" (mouseenter)="squareEntered(7,8,$event)" [config]="getSquareConfig(7,8)" [selected]="isSelected(7,8)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(7,9,$event)" (mouseenter)="squareEntered(7,9,$event)" [config]="getSquareConfig(7,9)" [selected]="isSelected(7,9)"></app-puzzle-square>
         </div>
         <div class="puzzle-row">
-            <app-puzzle-square [row]="8" [column]="1" [borderSettings]="borderRow8Col1" [shaded]="shadedRow8Col1" [fixedContent]="fixedRow8Col1" #row1col1></app-puzzle-square>
-            <app-puzzle-square [row]="8" [column]="2" [borderSettings]="borderRow8Col2" [shaded]="shadedRow8Col2" [fixedContent]="fixedRow8Col2" #row1col2></app-puzzle-square>
-            <app-puzzle-square [row]="8" [column]="3" [borderSettings]="borderRow8Col3" [shaded]="shadedRow8Col3" [fixedContent]="fixedRow8Col3" #row1col3></app-puzzle-square>
-            <app-puzzle-square [row]="8" [column]="4" [borderSettings]="borderRow8Col4" [shaded]="shadedRow8Col4" [fixedContent]="fixedRow8Col4" #row1col4></app-puzzle-square>
-            <app-puzzle-square [row]="8" [column]="5" [borderSettings]="borderRow8Col5" [shaded]="shadedRow8Col5" [fixedContent]="fixedRow8Col5" #row1col5></app-puzzle-square>
-            <app-puzzle-square [row]="8" [column]="6" [borderSettings]="borderRow8Col6" [shaded]="shadedRow8Col6" [fixedContent]="fixedRow8Col6" #row1col6></app-puzzle-square>
-            <app-puzzle-square [row]="8" [column]="7" [borderSettings]="borderRow8Col7" [shaded]="shadedRow8Col7" [fixedContent]="fixedRow8Col7" #row1col7></app-puzzle-square>
-            <app-puzzle-square [row]="8" [column]="8" [borderSettings]="borderRow8Col8" [shaded]="shadedRow8Col8" [fixedContent]="fixedRow8Col8" #row1col8></app-puzzle-square>
-            <app-puzzle-square [row]="8" [column]="9" [borderSettings]="borderRow8Col9" [shaded]="shadedRow8Col9" [fixedContent]="fixedRow8Col9" #row1col9></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(8,1,$event)" (mouseenter)="squareEntered(8,1,$event)" [config]="getSquareConfig(8,1)" [selected]="isSelected(8,1)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(8,2,$event)" (mouseenter)="squareEntered(8,2,$event)" [config]="getSquareConfig(8,2)" [selected]="isSelected(8,2)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(8,3,$event)" (mouseenter)="squareEntered(8,3,$event)" [config]="getSquareConfig(8,3)" [selected]="isSelected(8,3)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(8,4,$event)" (mouseenter)="squareEntered(8,4,$event)" [config]="getSquareConfig(8,4)" [selected]="isSelected(8,4)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(8,5,$event)" (mouseenter)="squareEntered(8,5,$event)" [config]="getSquareConfig(8,5)" [selected]="isSelected(8,5)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(8,6,$event)" (mouseenter)="squareEntered(8,6,$event)" [config]="getSquareConfig(8,6)" [selected]="isSelected(8,6)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(8,7,$event)" (mouseenter)="squareEntered(8,7,$event)" [config]="getSquareConfig(8,7)" [selected]="isSelected(8,7)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(8,8,$event)" (mouseenter)="squareEntered(8,8,$event)" [config]="getSquareConfig(8,8)" [selected]="isSelected(8,8)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(8,9,$event)" (mouseenter)="squareEntered(8,9,$event)" [config]="getSquareConfig(8,9)" [selected]="isSelected(8,9)"></app-puzzle-square>
         </div>
         <div class="puzzle-row">
-            <app-puzzle-square [row]="9" [column]="1" [borderSettings]="borderRow9Col1" [shaded]="shadedRow9Col1" [fixedContent]="fixedRow9Col1" #row1col1></app-puzzle-square>
-            <app-puzzle-square [row]="9" [column]="2" [borderSettings]="borderRow9Col2" [shaded]="shadedRow9Col2" [fixedContent]="fixedRow9Col2" #row1col2></app-puzzle-square>
-            <app-puzzle-square [row]="9" [column]="3" [borderSettings]="borderRow9Col3" [shaded]="shadedRow9Col3" [fixedContent]="fixedRow9Col3" #row1col3></app-puzzle-square>
-            <app-puzzle-square [row]="9" [column]="4" [borderSettings]="borderRow9Col4" [shaded]="shadedRow9Col4" [fixedContent]="fixedRow9Col4" #row1col4></app-puzzle-square>
-            <app-puzzle-square [row]="9" [column]="5" [borderSettings]="borderRow9Col5" [shaded]="shadedRow9Col5" [fixedContent]="fixedRow9Col5" #row1col5></app-puzzle-square>
-            <app-puzzle-square [row]="9" [column]="6" [borderSettings]="borderRow9Col6" [shaded]="shadedRow9Col6" [fixedContent]="fixedRow9Col6" #row1col6></app-puzzle-square>
-            <app-puzzle-square [row]="9" [column]="7" [borderSettings]="borderRow9Col7" [shaded]="shadedRow9Col7" [fixedContent]="fixedRow9Col7" #row1col7></app-puzzle-square>
-            <app-puzzle-square [row]="9" [column]="8" [borderSettings]="borderRow9Col8" [shaded]="shadedRow9Col8" [fixedContent]="fixedRow9Col8" #row1col8></app-puzzle-square>
-            <app-puzzle-square [row]="9" [column]="9" [borderSettings]="borderRow9Col9" [shaded]="shadedRow9Col9" [fixedContent]="fixedRow9Col9" #row1col9></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(9,1,$event)" (mouseenter)="squareEntered(9,1,$event)" [config]="getSquareConfig(9,1)" [selected]="isSelected(9,1)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(9,2,$event)" (mouseenter)="squareEntered(9,2,$event)" [config]="getSquareConfig(9,2)" [selected]="isSelected(9,2)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(9,3,$event)" (mouseenter)="squareEntered(9,3,$event)" [config]="getSquareConfig(9,3)" [selected]="isSelected(9,3)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(9,4,$event)" (mouseenter)="squareEntered(9,4,$event)" [config]="getSquareConfig(9,4)" [selected]="isSelected(9,4)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(9,5,$event)" (mouseenter)="squareEntered(9,5,$event)" [config]="getSquareConfig(9,5)" [selected]="isSelected(9,5)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(9,6,$event)" (mouseenter)="squareEntered(9,6,$event)" [config]="getSquareConfig(9,6)" [selected]="isSelected(9,6)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(9,7,$event)" (mouseenter)="squareEntered(9,7,$event)" [config]="getSquareConfig(9,7)" [selected]="isSelected(9,7)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(9,8,$event)" (mouseenter)="squareEntered(9,8,$event)" [config]="getSquareConfig(9,8)" [selected]="isSelected(9,8)"></app-puzzle-square>
+            <app-puzzle-square (mousedown)="squareMouseDown(9,9,$event)" (mouseenter)="squareEntered(9,9,$event)" [config]="getSquareConfig(9,9)" [selected]="isSelected(9,9)"></app-puzzle-square>
         </div>
     </div>
 
