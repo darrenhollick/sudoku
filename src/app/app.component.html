@@ -107,5 +107,14 @@
         </div>
     </div>
 
-    <div class="controls-wrapper">Controls</div>
+    <div class="controls-wrapper">
+
+        <h2 *ngIf="puzzleTitle">{{puzzleTitle}}</h2>
+        <em *ngIf="puzzleAuthor">By {{puzzleAuthor}}</em>
+
+        <h3>Instructions</h3>
+        <p [innerHTML]="puzzleInstructions"></p>
+
+        <h3>Controls</h3>
+    </div>
 </div>

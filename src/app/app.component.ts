@@ -15,6 +15,10 @@ export class AppComponent implements OnInit {
     squareConfigs: Array<SquareConfig> = [];
     scale: number;
 
+    puzzleInstructions = "";
+    puzzleTitle = "";
+    puzzleAuthor = "";
+
     constructor(
         private http: HttpClient,
     ) {}
@@ -25,8 +29,12 @@ export class AppComponent implements OnInit {
     }
 
     loadPuzzleConfig(puzzleId: string) {
-        this.http.get<PuzzleConfig>(`/assets/puzzles/${puzzleId}.json`).subscribe(data => {
+        console.log(`${window.location.origin}/assets/puzzles/${puzzleId}.json`);
+        this.http.get<PuzzleConfig>(`${window.location.origin}/assets/puzzles/${puzzleId}.json`).subscribe(data => {
             this.squareConfigs = data.squares;
+            this.puzzleInstructions = data.instructions;
+            this.puzzleTitle = data.title;
+            this.puzzleAuthor = data.author;
         });
     }
 

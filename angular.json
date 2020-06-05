@@ -125,5 +125,8 @@
             }
         }
     },
-    "defaultProject": "sudoku-app"
+    "defaultProject": "sudoku-app",
+    "cli": {
+        "analytics": false
+    }
 }
