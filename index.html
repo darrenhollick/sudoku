@@ -1,12 +1,32 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>SudokuApp</title>
-  <base href="/sudoku-app/">  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" href="styles.09e2c710755c8867a460.css"></head>
+    <meta charset="utf-8">
+    <title>SudokuApp</title>
+    <base href="/sudoku-app/">    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="styles.1747b919f8b1776c7f20.css"></head>
+
 <body>
-  <app-root></app-root>
-<script src="runtime-es2015.1eba213af0b233498d9d.js" type="module"></script><script src="runtime-es5.1eba213af0b233498d9d.js" nomodule defer></script><script src="polyfills-es5.9e286f6d9247438cbb02.js" nomodule defer></script><script src="polyfills-es2015.690002c25ea8557bb4b0.js" type="module"></script><script src="main-es2015.a5952995e1f8688c5d18.js" type="module"></script><script src="main-es5.a5952995e1f8688c5d18.js" nomodule defer></script></body>
+    <div onmousedown="test(event)" style="padding:5px; margin:5px; background:#eee;">test 1</div>
+    <div onmousedown="test(event)" style="padding:5px; margin:5px; background:#eee;">test 2</div>
+    <div onmousedown="test(event)" style="padding:5px; margin:5px; background:#eee;">test 3</div>
+    <div id="log"></div>
+    <app-root></app-root>
+<script src="runtime-es2015.1eba213af0b233498d9d.js" type="module"></script><script src="runtime-es5.1eba213af0b233498d9d.js" nomodule defer></script><script src="polyfills-es5.9e286f6d9247438cbb02.js" nomodule defer></script><script src="polyfills-es2015.690002c25ea8557bb4b0.js" type="module"></script><script src="main-es2015.60193e17b51491584b95.js" type="module"></script><script src="main-es5.60193e17b51491584b95.js" nomodule defer></script></body>
+
+<script>
+    function test() {
+        //console.log("test",  event);
+        event.preventDefault();
+        // event.stopPropagation();
+        var el = document.getElementById("log");
+        el.innerHTML += "[" + new Date().toISOString() + "] clicked ctrl:" + event.ctrlKey + "   shift:" + event.shiftKey + "<br/>";
+    }
+
+    window.addEventListener("keydown", (event) => {
+        event.key === "Ctrl"
+    });
+</script>
 </html>
