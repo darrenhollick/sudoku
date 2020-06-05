@@ -90,5 +90,8 @@
         { "row": 9, "column": 8, "fixedContent": "", "thickBorders": "0, 0, 1, 0", "cageBorders": "1, 0, 1, 0", "cageValue": "", "shaded": true },
         { "row": 9, "column": 9, "fixedContent": "", "thickBorders": "0, 1, 1, 0", "cageBorders": "0, 1, 1, 0", "cageValue": "", "shaded": true }
     ],
-    "extras": "The plan is that SVG content can go here... or line configs or something..."
+    "extras": "The plan is that SVG content can go here... or line configs or something...",
+    "instructions": "Normal Sudoku rules apply.  In addition, each of the eight grey \"L\"-shaped regions in the grid must contain consecutive digits (in any order).",
+    "title": "Renban Sudoku",
+    "author": "Aad van de Wetering"
 }
