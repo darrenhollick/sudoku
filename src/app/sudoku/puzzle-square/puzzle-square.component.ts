@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostListener } from "@angular/core";
-import { SquareConfig } from "../sudoku/square-config.interface";
+import { SquareConfig } from "../square-config.interface";
 
 @Component({
     selector: "app-puzzle-square",
@@ -25,7 +25,7 @@ export class PuzzleSquareComponent implements OnInit {
                 if (parts.length >= 3 && parts[2].trim() === "1") { this.cageBottom = true; }
                 if (parts.length >= 4 && parts[3].trim() === "1") { this.cageLeft = true; }
             }
-            if (value.cageValue) { this.cageValue = value.cageValue; }
+            if (value.cageLabel) { this.cageValue = value.cageLabel; }
             if (value.shaded) { this.shaded = value.shaded; }
         }
     }

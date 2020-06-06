@@ -4,6 +4,6 @@ export interface SquareConfig {
     fixedContent: string;
     thickBorders: string;
     cageBorders: string;
-    cageValue: string;
+    cageLabel: string;
     shaded: boolean;
 }
