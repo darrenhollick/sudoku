@@ -2,10 +2,10 @@ import { Component, OnInit, HostListener } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 
-import { SquareConfig } from "./square-config.interface";
-import { PuzzleConfig } from "./puzzle-config.interface";
-import { CageConfig } from "./cage-config.interface";
-import { GridCoords } from "./grid-coords.interface";
+import { SquareConfig } from "../@data/square-config.interface";
+import { PuzzleConfig } from "../@data/puzzle-config.interface";
+import { CageConfig } from "../@data/cage-config.interface";
+import { GridCoords } from "../@data/grid-coords.interface";
 import { ActivatedRoute } from "@angular/router";
 
 
@@ -59,7 +59,7 @@ export class SudokuComponent implements OnInit {
 
     loadPuzzleConfig(puzzleId: string) {
         // console.log(`../assets/puzzles/${puzzleId}.json`);
-        this.http.get<PuzzleConfig>(`../assets/puzzles/${puzzleId}.json`).subscribe(data => {
+        this.http.get<PuzzleConfig>(`assets/puzzles/${puzzleId}.json`).subscribe(data => {
             this.squareConfigs = data.squares;
             if (data.boxes) { data.boxes.forEach(box => this.loadBox(box)); }
             if (data.cages) { data.cages.forEach(cage => this.loadCage(cage)); }
