@@ -3,12 +3,18 @@
         "id": "11b87c7f-1ed5-4304-aaeb-a5c0dfe008a7",
         "title": "Renban Sudoku",
         "author": "Aad van de Wetering",
-        "tags": [ "consecutive" ]
+        "tags": [ "consecutive", "hand-crafted" ]
     },
     {
         "id": "0cbfeaeb-74a1-457c-a3ef-d21b96ffb4e3",
         "title": "Self-Killer",
         "author": "Peter C Hayward",
-        "tags": [ "killer" ]
+        "tags": [ "killer", "hand-crafted" ]
+    },
+    {
+        "id": "fbef0f8d-54b1-41f5-8f87-c01e32dd7434",
+        "title": "Simple 2020-04-03",
+        "author": "Auto-Generated",
+        "tags": [ "classic", "auto-generated" ]
     }
 ]
