@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostListener } from "@angular/core";
-import { SquareConfig } from "../square-config.interface";
+import { SquareConfig } from "../../@data/square-config.interface";
 
 @Component({
     selector: "app-puzzle-square",

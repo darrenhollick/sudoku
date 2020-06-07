@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
-import { PuzzleInfo } from "./puzzle-info.interface";
+import { PuzzleInfo } from "../@data/puzzle-info.interface";
 
 @Component({
     selector: "app-home",
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.http.get<Array<PuzzleInfo>>(`../assets/puzzles.json`).subscribe(data => {
+        this.http.get<Array<PuzzleInfo>>(`assets/puzzles.json`).subscribe(data => {
             this.puzzles = data;
 
             this.puzzles.forEach(puzzle => {
