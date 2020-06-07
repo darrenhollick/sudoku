@@ -40,6 +40,8 @@ export class SudokuComponent implements OnInit {
     puzzleTitle = "";
     puzzleAuthor = "";
 
+    controlMode = "normal";
+
     constructor(
         private http: HttpClient,
         private route: ActivatedRoute,
@@ -191,8 +193,6 @@ export class SudokuComponent implements OnInit {
 
     @HostListener("window:mousedown", ["$event"])
     windowMouseDown(event: MouseEvent) {
-        console.log("windowMouseDown", event);
-
         let el = event.target as any;
 
         while (el.tagName !== "APP-PUZZLE-SQUARE" && el.parentNode) {
@@ -207,6 +207,19 @@ export class SudokuComponent implements OnInit {
     @HostListener("window:resize", ["$event"])
     windowResized(event) {
         this.calcScale(event.target.innerWidth, event.target.innerHeight);
+    }
+
+
+    sendKey(key: string, event: MouseEvent) {
+        const keyboardEvent = new KeyboardEvent("keydown", {
+            key: key,
+            ctrlKey: (this.controlMode === "center" ? true : false),
+            shiftKey: (this.controlMode === "corner" ? true : false),
+            altKey: (this.controlMode === "color" ? true : false),
+        });
+        window.dispatchEvent(keyboardEvent);
+        // event.preventDefault();
+        event.stopPropagation();
     }
 
     calcScale(width: number, height: number) {

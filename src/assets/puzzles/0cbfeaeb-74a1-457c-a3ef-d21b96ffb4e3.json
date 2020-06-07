@@ -291,13 +291,13 @@
         "<rect x=\"700\" y=\"800\" width=\"100\" height=\"100\" fill=\"rgba(210, 59, 231, 0.4)\" />",
 
         "<!-- green -->",
-        "<rect x=\"100\" y=\"700\" width=\"100\" height=\"100\" fill=\"rgba(163, 224, 72, 0.4)\" />",
-        "<circle cx=\"150\" cy=\"750\" r=\"32\" stroke=\"black\" stroke-width=\"3\" fill=\"rgba(163, 224, 72, 0.4)\" />",
-        "<rect x=\"200\" y=\"700\" width=\"100\" height=\"100\" fill=\"rgba(163, 224, 72, 0.4)\" />",
-        "<circle cx=\"250\" cy=\"750\" r=\"32\" stroke=\"black\" stroke-width=\"3\" fill=\"rgba(163, 224, 72, 0.4)\" />",
-        "<rect x=\"300\" y=\"700\" width=\"100\" height=\"100\" fill=\"rgba(163, 224, 72, 0.4)\" />",
-        "<rect x=\"400\" y=\"700\" width=\"100\" height=\"100\" fill=\"rgba(163, 224, 72, 0.4)\" />",
-        "<rect x=\"500\" y=\"700\" width=\"100\" height=\"100\" fill=\"rgba(163, 224, 72, 0.4)\" />"
+        "<rect x=\"100\" y=\"800\" width=\"100\" height=\"100\" fill=\"rgba(163, 224, 72, 0.4)\" />",
+        "<circle cx=\"150\" cy=\"850\" r=\"32\" stroke=\"black\" stroke-width=\"3\" fill=\"rgba(163, 224, 72, 0.4)\" />",
+        "<rect x=\"200\" y=\"800\" width=\"100\" height=\"100\" fill=\"rgba(163, 224, 72, 0.4)\" />",
+        "<circle cx=\"250\" cy=\"850\" r=\"32\" stroke=\"black\" stroke-width=\"3\" fill=\"rgba(163, 224, 72, 0.4)\" />",
+        "<rect x=\"300\" y=\"800\" width=\"100\" height=\"100\" fill=\"rgba(163, 224, 72, 0.4)\" />",
+        "<rect x=\"400\" y=\"800\" width=\"100\" height=\"100\" fill=\"rgba(163, 224, 72, 0.4)\" />",
+        "<rect x=\"500\" y=\"800\" width=\"100\" height=\"100\" fill=\"rgba(163, 224, 72, 0.4)\" />"
         
     ],
     "instructions": "Normal Sudoku rules apply.  Additionally, there are ten colored areas.  In each, the two circled digits should be read as a two-digit number. The sum of all digits in an area sums to the that number. Numbers do not repeat within a colored area.",

@@ -110,7 +110,32 @@
     </div>
 
     <div class="sidebar-wrapper">
-        <button (click)="checkPuzzle()">Check Puzzle</button>
+        <div class="control-row">
+            <div class="func-col">
+                <button class="btn func" [class.active]="controlMode === 'normal'" (mousedown)="controlMode = 'normal'; $event.stopPropagation();">Normal</button>
+                <button class="btn func" [class.active]="controlMode === 'corner'" (mousedown)="controlMode = 'corner'; $event.stopPropagation();">Corner</button>
+                <button class="btn func" [class.active]="controlMode === 'center'" (mousedown)="controlMode = 'center'; $event.stopPropagation();">Center</button>
+                <button class="btn func" [class.active]="controlMode === 'color'" (mousedown)="controlMode = 'color'; $event.stopPropagation();">Color</button>
+            </div>
+            <div class="num-col">
+                <button class="btn num" (mousedown)="sendKey('1', $event)"><span *ngIf="controlMode !== 'color'">1</span><span class="color color1" *ngIf="controlMode === 'color'"></span></button>
+                <button class="btn num" (mousedown)="sendKey('2', $event)"><span *ngIf="controlMode !== 'color'">2</span><span class="color color2" *ngIf="controlMode === 'color'"></span></button>
+                <button class="btn num" (mousedown)="sendKey('3', $event)"><span *ngIf="controlMode !== 'color'">3</span><span class="color color3" *ngIf="controlMode === 'color'"></span></button>
+                <button class="btn num" (mousedown)="sendKey('4', $event)"><span *ngIf="controlMode !== 'color'">4</span><span class="color color4" *ngIf="controlMode === 'color'"></span></button>
+                <button class="btn num" (mousedown)="sendKey('5', $event)"><span *ngIf="controlMode !== 'color'">5</span><span class="color color5" *ngIf="controlMode === 'color'"></span></button>
+                <button class="btn num" (mousedown)="sendKey('6', $event)"><span *ngIf="controlMode !== 'color'">6</span><span class="color color6" *ngIf="controlMode === 'color'"></span></button>
+                <button class="btn num" (mousedown)="sendKey('7', $event)"><span *ngIf="controlMode !== 'color'">7</span><span class="color color7" *ngIf="controlMode === 'color'"></span></button>
+                <button class="btn num" (mousedown)="sendKey('8', $event)"><span *ngIf="controlMode !== 'color'">8</span><span class="color color8" *ngIf="controlMode === 'color'"></span></button>
+                <button class="btn num" (mousedown)="sendKey('9', $event)"><span *ngIf="controlMode !== 'color'">9</span><span class="color color9" *ngIf="controlMode === 'color'"></span></button>
+                <button class="btn delete" (mousedown)="sendKey('Delete', $event)">Delete</button>
+            </div>
+            <div class="func-col">
+                <button class="btn func" disabled>Undo</button>
+                <button class="btn func" disabled>Redo</button>
+                <button class="btn func" disabled>Restart</button>
+                <button class="btn func" (mousedown)="checkPuzzle()">Check</button>
+            </div>
+        </div>
 
         <h2 *ngIf="puzzleTitle" class="puzzleTitle">{{puzzleTitle}}</h2>
         <div *ngIf="puzzleAuthor" class="puzzleAuthor">&mdash; by {{puzzleAuthor}}</div>
