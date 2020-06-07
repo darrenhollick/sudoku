@@ -4,12 +4,20 @@
     padding: 15px;
     margin-bottom: 20px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
     .brand {
-        //
+        min-width: 100%;
+        @media (min-width: 1200px) {
+            min-width: auto;
+        }
     }
     .timer {
-        margin: 0 auto;
+        margin: 0;
+        @media (min-width: 1200px) {
+            margin: 0 auto;
+        }
         font-size: 120%;
         color: rgb(255, 180, 136);
     }
@@ -19,6 +27,7 @@
         }
     }
 }
+
 .app-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -27,6 +36,9 @@
 
 .puzzle {
     position: relative;
+    display: none;
+
+    &.show { display: block; }
 
     min-width: 100vw;
     @media (min-width: 1200px) {
@@ -48,10 +60,12 @@
     
         .puzzle-extras {
             position: absolute;
-            top: 0px;
-            left: 0px;
-            right: 0px;
-            bottom: 0px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 720px;
+            height: 720px;
             z-index: 70;
             pointer-events: none;
         }
@@ -62,8 +76,8 @@
     }
 }
 
-.controls-wrapper {
-    padding: 20px 0;
+.sidebar-wrapper {
+    padding: 20px;
     max-width: 720px;
     margin: 0 auto;
     
@@ -87,7 +101,8 @@
     }
 
     .instructions {
-        padding: 10px;
+        padding: 20px;
         background: #eee;
+        line-height: 160%;
     }
 }

@@ -1,10 +1,13 @@
 import { Component, OnInit, HostListener } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 
 import { SquareConfig } from "./square-config.interface";
 import { PuzzleConfig } from "./puzzle-config.interface";
 import { CageConfig } from "./cage-config.interface";
 import { GridCoords } from "./grid-coords.interface";
+import { ActivatedRoute } from "@angular/router";
+
 
 @Component({
     selector: "app-sudoku",
@@ -15,7 +18,7 @@ export class SudokuComponent implements OnInit {
 
     startTime: number;
     timer = "00:00";
-    puzzleSize: number;
+    puzzleReady = false;
     puzzleScale: number;
     selectedSquares: Array<string> = [];
     squareConfigs: Array<SquareConfig> = [];
@@ -32,29 +35,38 @@ export class SudokuComponent implements OnInit {
     checkQueensEvens = false;
     checkQueensOdds = false;
 
+    puzzleExtras: SafeHtml;
     puzzleInstructions = "";
     puzzleTitle = "";
     puzzleAuthor = "";
 
     constructor(
         private http: HttpClient,
+        private route: ActivatedRoute,
+        private sanitizer: DomSanitizer,
     ) {}
 
     ngOnInit(): void {
         this.calcScale(window.innerWidth, window.innerHeight);
-        this.loadPuzzleConfig("test");
+        this.route.params.subscribe(params => {
+            if (params.puzzleId) {
+                this.loadPuzzleConfig(params.puzzleId);
+            } else {
+                alert("Error: Missing Puzzle Id");
+            }
+        });
     }
 
     loadPuzzleConfig(puzzleId: string) {
         // console.log(`../assets/puzzles/${puzzleId}.json`);
         this.http.get<PuzzleConfig>(`../assets/puzzles/${puzzleId}.json`).subscribe(data => {
             this.squareConfigs = data.squares;
-            data.boxes.forEach(box => this.loadBox(box));
-            data.cages.forEach(cage => this.loadCage(cage));
-            this.puzzleInstructions = data.instructions;
-            this.puzzleTitle = data.title;
-            this.puzzleAuthor = data.author;
-            this.puzzleAuthor = data.author;
+            if (data.boxes) { data.boxes.forEach(box => this.loadBox(box)); }
+            if (data.cages) { data.cages.forEach(cage => this.loadCage(cage)); }
+            if (data.extras) { this.puzzleExtras = this.sanitizer.bypassSecurityTrustHtml(data.extras.join()); }
+            if (data.title) { this.puzzleTitle = data.title; }
+            if (data.author) { this.puzzleAuthor = data.author; }
+            if (data.instructions) { this.puzzleInstructions = data.instructions; }
 
             this.startTime = Date.now();
             setInterval(() => {
@@ -68,6 +80,8 @@ export class SudokuComponent implements OnInit {
                     this.timer = `${hours}:${minutes}:${seconds}`;
                 }
             }, 1000);
+
+            this.puzzleReady = true;
         });
     }
 

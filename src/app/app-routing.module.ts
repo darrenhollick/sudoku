@@ -8,7 +8,7 @@ import { HelpComponent } from "./help/help.component";
 const routes: Routes = [
     { path: "", pathMatch: "full", redirectTo: "/home" },
     { path: "home", component: HomeComponent },
-    { path: "sudoku", component: SudokuComponent },
+    { path: "sudoku/:puzzleId", component: SudokuComponent },
     { path: "help", component: HelpComponent },
 ];
 

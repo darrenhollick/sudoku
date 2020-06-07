@@ -17,7 +17,7 @@ export interface PuzzleConfig {
     checkKingsOdds: boolean;
     checkQueensEvens: boolean;
     checkQueensOdds: boolean;
-    extras: string;
+    extras: Array<string>;
     instructions: string;
     title: string;
     author: string;

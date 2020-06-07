@@ -120,13 +120,11 @@ export class PuzzleSquareComponent implements OnInit {
             return;
         }
 
-        console.log("key", event);
-
         if (event.altKey === true && this.isNumber(event.key)) {
             this.setColor(event.key);
         } else if (event.ctrlKey === true && this.isNumber(event.key)) {
             this.setCenterContent(event.key);
-        } else if (event.shiftKey === true || event.code.startsWith("Numpad")) {
+        } else if (event.shiftKey === true || (!this.isNumber(event.key) && event.code.startsWith("Numpad"))) {
             let key = event.key;
             if (event.key === "!" || event.code === "Numpad1") { key = "1"; }
             if (event.key === "@" || event.code === "Numpad2") { key = "2"; }
@@ -144,6 +142,7 @@ export class PuzzleSquareComponent implements OnInit {
 
         event.preventDefault();
     }
+
     isNumber(input: string): boolean {
         if (input === "1" || input === "2" || input === "3" || input === "4" || input === "5" || input === "6" || input === "7" || input === "8" || input === "9") {
             return true;

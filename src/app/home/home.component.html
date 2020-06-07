@@ -1,3 +1,16 @@
-<h1>Do You Sudoku?</h1>
+<div class="hero">
+    <h1>Do You Sudoku?</h1>
+    <h3>Free Suodku Puzzles, for anyone, forever.</h3>
+</div>
 
-<a routerLink="/sudoku">Play a puzzle</a>
+<div class="tags-container">
+    <ng-template ngFor [ngForOf]="tags" let-tag>
+        <div class="tag">
+            <h4>{{tag}}</h4>
+            
+            <div class="puzzle" *ngFor="let puzzle of getPuzzlesByTag(tag)">
+                <a [routerLink]="['/sudoku', puzzle.id]">{{puzzle.title}}</a> by {{puzzle.author}}
+            </div>
+        </div>
+    </ng-template>
+</div>

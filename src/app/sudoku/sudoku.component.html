@@ -3,16 +3,10 @@
     <div class="timer">{{timer}}</div>
     <div class="nav"><a routerLink="/help">Help</a></div>
 </div>
-
 <div class="app-wrapper">
-    <div class="puzzle" [style.height]="puzzleScale < 1 ? '100vw' : ''">
+    <div class="puzzle" [class.show]="puzzleReady" [style.height]="puzzleScale < 1 ? '100vw' : ''">
         <div class="puzzle-grid" [style.transform]="'translate(-50%, -50%) scale('+puzzleScale+')'">
-            <!-- 
-            <svg class="puzzle-extras" viewBox="0 0 1000 1000">
-                <line x1="0" y1="0" x2="1000" y2="1000" stroke="rgb(210, 59, 231)" stroke-width="3" />
-                <line x1="1000" y1="0" x2="0" y2="1000" stroke="rgb(210, 59, 231)" stroke-width="3" />
-            </svg>
-            -->
+            <svg class="puzzle-extras" viewBox="0 0 900 900" [innerHTML]="puzzleExtras"></svg>
             <div class="puzzle-row">
                 <app-puzzle-square (mousedown)="squareMouseDown(1,1,$event)" (mouseenter)="squareEntered(1,1,$event)" [config]="getSquareConfig(1,1)" [selected]="isSelected(1,1)"></app-puzzle-square>
                 <app-puzzle-square (mousedown)="squareMouseDown(1,2,$event)" (mouseenter)="squareEntered(1,2,$event)" [config]="getSquareConfig(1,2)" [selected]="isSelected(1,2)"></app-puzzle-square>
@@ -115,15 +109,14 @@
         </div>
     </div>
 
-    <div class="controls-wrapper">
+    <div class="sidebar-wrapper">
+        <button (click)="checkPuzzle()">Check Puzzle</button>
+
         <h2 *ngIf="puzzleTitle" class="puzzleTitle">{{puzzleTitle}}</h2>
         <div *ngIf="puzzleAuthor" class="puzzleAuthor">&mdash; by {{puzzleAuthor}}</div>
 
         <h3>Instructions:</h3>
         <hr />
         <p class="instructions" [innerHTML]="puzzleInstructions"></p>
-
-        <h3>Controls</h3>
-        <button (click)="checkPuzzle()">Check Puzzle</button>
     </div>
 </div>

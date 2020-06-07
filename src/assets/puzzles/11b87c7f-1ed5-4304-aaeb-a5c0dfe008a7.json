@@ -292,7 +292,7 @@
     "checkKingsOdds": false,
     "checkQueensEvens": false,
     "checkQueensOdds": false,
-    "extras": "The plan is that SVG content can go here... or line configs or something...",
+    "extras": [],
     "instructions": "Normal Sudoku rules apply.  In addition, each of the eight grey \"L\"-shaped regions in the grid must contain consecutive digits (in any order).",
     "title": "Renban Sudoku",
     "author": "Aad van de Wetering"
