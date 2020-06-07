@@ -1,33 +1,93 @@
+.header {
+    background: #445;
+    color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+
+    .brand {
+        //
+    }
+    .timer {
+        margin: 0 auto;
+        font-size: 120%;
+        color: rgb(255, 180, 136);
+    }
+    .nav {
+        a {
+            color: #fff;
+        }
+    }
+}
 .app-wrapper {
-    padding: 20px;
-    // display: flex;
-    // flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.puzzle-grid {
-    // width: (75 * 9) + px;
-    // max-width: (75 * 9) + px;
-    // height: (75 * 9) + px;
-    // max-height: (75 * 9) + px;
+.puzzle {
     position: relative;
-    float: left;
-    border: 1px solid #000;
 
-    .puzzle-extras {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
-        z-index: 70;
-        pointer-events: none;
+    min-width: 100vw;
+    @media (min-width: 1200px) {
+        flex-grow: 1;
+        min-width: auto;
+        max-width: calc(100vw - 500px);
     }
 
-    .puzzle-row {
-        display: flex;
+    .puzzle-grid {
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform-origin: center center;
+
+        width: 720px;
+        height: 720px;
+    
+        border: 1px solid #000;
+    
+        .puzzle-extras {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            z-index: 70;
+            pointer-events: none;
+        }
+    
+        .puzzle-row {
+            display: flex;
+        }
     }
 }
 
 .controls-wrapper {
-    max-width: 300px;
+    padding: 20px 0;
+    max-width: 720px;
+    margin: 0 auto;
+    
+    @media (min-width: 1200px) {
+        padding: 0 20px;
+        min-width: 375px;
+        max-width: 500px;
+    }
+    .puzzleTitle {
+        margin-bottom: 0;
+    }
+    .puzzleAuthor {
+        font-style: italic;
+    }
+
+    h3 {
+        margin: 30px 0 0 0;
+    }
+    p {
+        margin-top: 0;
+    }
+
+    .instructions {
+        padding: 10px;
+        background: #eee;
+    }
 }

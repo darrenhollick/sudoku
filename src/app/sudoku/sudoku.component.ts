@@ -13,7 +13,10 @@ import { GridCoords } from "./grid-coords.interface";
 })
 export class SudokuComponent implements OnInit {
 
-    scale: number;
+    startTime: number;
+    timer = "00:00";
+    puzzleSize: number;
+    puzzleScale: number;
     selectedSquares: Array<string> = [];
     squareConfigs: Array<SquareConfig> = [];
 
@@ -38,7 +41,7 @@ export class SudokuComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        // this.calcScale(window.innerWidth, window.innerHeight);
+        this.calcScale(window.innerWidth, window.innerHeight);
         this.loadPuzzleConfig("test");
     }
 
@@ -52,6 +55,19 @@ export class SudokuComponent implements OnInit {
             this.puzzleTitle = data.title;
             this.puzzleAuthor = data.author;
             this.puzzleAuthor = data.author;
+
+            this.startTime = Date.now();
+            setInterval(() => {
+                const date = new Date((Date.now() - this.startTime));
+                const hours = `0${date.getUTCHours()}`.slice(-2);
+                const minutes = `0${date.getUTCMinutes()}`.slice(-2);
+                const seconds = `0${date.getSeconds()}`.slice(-2);
+                if (hours === "00") {
+                    this.timer = `${minutes}:${seconds}`;
+                } else {
+                    this.timer = `${hours}:${minutes}:${seconds}`;
+                }
+            }, 1000);
         });
     }
 
@@ -181,14 +197,14 @@ export class SudokuComponent implements OnInit {
 
     calcScale(width: number, height: number) {
         const tmpScale = Math.min(
-            width / ((75 * 9) + 2 + 4 + 80),
-            height / ((75 * 9) + 2 + 4 + 80)
+            width / 740, // 720 plus some extra
+            height / 740
         );
 
         if (tmpScale > 1) {
-            this.scale = 1;
+            this.puzzleScale = 1;
         } else {
-            this.scale = tmpScale;
+            this.puzzleScale = tmpScale;
         }
     }
 
