@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from "@angular/core";
+import { Component, OnInit, HostListener, ViewChild } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 
@@ -7,6 +7,7 @@ import { PuzzleConfig } from "../@data/puzzle-config.interface";
 import { CageConfig } from "../@data/cage-config.interface";
 import { GridCoords } from "../@data/grid-coords.interface";
 import { ActivatedRoute } from "@angular/router";
+import { PuzzleSquareComponent } from "./puzzle-square/puzzle-square.component";
 
 
 @Component({
@@ -41,6 +42,8 @@ export class SudokuComponent implements OnInit {
     puzzleAuthor = "";
 
     controlMode = "normal";
+
+    @ViewChild("squareR1C1") squareR1C1: PuzzleSquareComponent;
 
     constructor(
         private http: HttpClient,

@@ -8,7 +8,7 @@
         <div class="puzzle-grid" [style.transform]="'translate(-50%, -50%) scale('+puzzleScale+')'">
             <svg class="puzzle-extras" viewBox="0 0 900 900" [innerHTML]="puzzleExtras"></svg>
             <div class="puzzle-row">
-                <app-puzzle-square (mousedown)="squareMouseDown(1,1,$event)" (mouseenter)="squareEntered(1,1,$event)" [config]="getSquareConfig(1,1)" [selected]="isSelected(1,1)"></app-puzzle-square>
+                <app-puzzle-square #squareR1C1 (mousedown)="squareMouseDown(1,1,$event)" (mouseenter)="squareEntered(1,1,$event)" [config]="getSquareConfig(1,1)" [selected]="isSelected(1,1)"></app-puzzle-square>
                 <app-puzzle-square (mousedown)="squareMouseDown(1,2,$event)" (mouseenter)="squareEntered(1,2,$event)" [config]="getSquareConfig(1,2)" [selected]="isSelected(1,2)"></app-puzzle-square>
                 <app-puzzle-square (mousedown)="squareMouseDown(1,3,$event)" (mouseenter)="squareEntered(1,3,$event)" [config]="getSquareConfig(1,3)" [selected]="isSelected(1,3)"></app-puzzle-square>
                 <app-puzzle-square (mousedown)="squareMouseDown(1,4,$event)" (mouseenter)="squareEntered(1,4,$event)" [config]="getSquareConfig(1,4)" [selected]="isSelected(1,4)"></app-puzzle-square>

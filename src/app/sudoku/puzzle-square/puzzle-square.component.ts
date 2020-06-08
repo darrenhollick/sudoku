@@ -10,6 +10,8 @@ export class PuzzleSquareComponent implements OnInit {
 
     @Input() set config(value: SquareConfig) {
         if (value) {
+            this.row = value.row;
+            this.col = value.column;
             if (value.fixedContent) { this.fixedContent = value.fixedContent; }
             if (value.thickBorders) {
                 const parts = value.thickBorders.split(",");
@@ -31,6 +33,8 @@ export class PuzzleSquareComponent implements OnInit {
     }
     @Input() selected = false;
 
+    row: number;
+    col: number;
     borderTop = false;
     borderRight = false;
     borderBottom = false;
